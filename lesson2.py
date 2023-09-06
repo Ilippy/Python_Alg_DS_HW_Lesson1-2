@@ -87,9 +87,7 @@ def heapify(array: list, i: int, n: int):
         i_largest = i_left
     if i_right <= n and array[i_right] > array[i_largest]:
         i_largest = i_right
-    if i_largest == i:
-        return
-    else:
+    if i_largest != i:
         array[i_largest], array[i] = array[i], array[i_largest]
         heapify(array, i_largest, n)
 
@@ -108,7 +106,6 @@ def heap_sort(array: list) -> list:
     return array
 
 
-#
 # test_list = [random.randint(0, 100) for _ in range(10)]
 # print(test_list)
 # print(heap_sort(test_list))
