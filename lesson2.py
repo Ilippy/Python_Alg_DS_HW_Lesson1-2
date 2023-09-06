@@ -3,9 +3,10 @@ from time import time
 import numpy
 
 
-def how_long(func, x):
+def how_long(func, arr):
+    temp_list = arr[::]
     start = time()
-    func(x)
+    func(temp_list)
     print(f"На это ушло времени {time() - start}")
 
 
@@ -117,29 +118,22 @@ new_list = [random.randint(0, 1_000_000) for _ in range(10_000)]
 # print(new_list)
 
 print("Numpy sort")
-list_0 = new_list[::]
-how_long(numpy.sort, list_0)
+how_long(numpy.sort, new_list)
 
 print("Built in sorting")
-list_1 = new_list[::]
-how_long(sorted, list_1)
+how_long(sorted, new_list)
 
 print("Quick sort")
-list_2 = new_list[::]
-how_long(quick_sort, list_2)
+how_long(quick_sort, new_list)
 
 print("Merge sort")
-list_3 = new_list[::]
-how_long(merge_sort, list_3)
+how_long(merge_sort, new_list)
 
 print("Heap sort")
-list_4 = new_list[::]
-how_long(heap_sort, list_4)
+how_long(heap_sort, new_list)
 
 print("Counting sort")
-list_5 = new_list[::]
-how_long(counting_sort, list_5)
+how_long(counting_sort, new_list)
 
 print("Bubble sort")
-list_6 = new_list[::]
-how_long(sorting, list_6)
+how_long(sorting, new_list)
